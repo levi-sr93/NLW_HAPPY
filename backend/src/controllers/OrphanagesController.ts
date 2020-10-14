@@ -6,7 +6,17 @@ import Orphanage from '../models/Orphanages';
 //Views - Visualização
 //Controllers - lógica das rotas e etc
 
+//padrões do controller - Index, show, create, update, delete
+
 export default {
+  async index(request: Request, response: Response) {
+    const orphanagesRepository = getRepository(Orphanage);
+
+    const orphanages = await orphanagesRepository.find();
+
+    return response.json(orphanages);
+  },
+
   async create(request: Request, response: Response) {
     const {
       name,
