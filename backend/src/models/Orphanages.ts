@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('orphanages') //Com esse decorator o typeorm vai entender que essa classe está relacionada com a tabela orphanages
 export default class Orphanages {
-  @PrimaryGeneratedColumn('incremet')
+  @PrimaryGeneratedColumn('increment')
   id: number;
 
   @Column()
@@ -24,5 +24,5 @@ export default class Orphanages {
   opening_hours: string;
 
   @Column()
-  opening_on_weekends: boolean;
+  open_on_weekends: boolean;
 }
