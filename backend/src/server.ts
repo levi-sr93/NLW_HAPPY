@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.json());
 
-app.get('/', (request, response) => {
+app.post('/orphanages', (request, response) => {
   return response.json({ ok: true });
 });
 app.listen(3333);
