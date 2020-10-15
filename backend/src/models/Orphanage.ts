@@ -38,5 +38,5 @@ export default class Orphanage {
     cascade: ['insert', 'update']
   })
   @JoinColumn({ name: 'orphanage_id' })
-  image: Image[];
+  images: Image[];
 }

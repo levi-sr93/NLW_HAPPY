@@ -40,6 +40,12 @@ export default {
       open_on_weekends
     } = request.body;
 
+    const requestImages = request.files as Express.Multer.File[];
+
+    const images = requestImages.map(image => {
+      return { path: image.filename };
+    });
+
     // o typeorm usa um pattern chamado repository patern em q toda operação de banco de dados passa por um repositório;
     //é no repositório que se tem a regra de como ele pode ser criado ou deletado.
 
@@ -52,7 +58,8 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekends
+      open_on_weekends,
+      images
     });
 
     //salvando no banco
