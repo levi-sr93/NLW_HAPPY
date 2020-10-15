@@ -22,7 +22,7 @@ export default {
 
     const orphanagesRepository = getRepository(Orphanage);
 
-    const orphanage = await orphanagesRepository.findOneOrFail({ id });
+    const orphanage = await orphanagesRepository.findOneOrFail(id);
 
     return response.json(orphanage);
   },
