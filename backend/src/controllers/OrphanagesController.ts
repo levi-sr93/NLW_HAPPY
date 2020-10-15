@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
-import Orphanage from '../models/Orphanages';
+import Orphanage from '../models/Orphanage';
 
 //Model - Representação de uma entidade na aplicação ( dado, usuário, usuário)
 //Views - Visualização
@@ -28,6 +28,8 @@ export default {
   },
 
   async create(request: Request, response: Response) {
+    console.log(request.files);
+
     const {
       name,
       latitude,
