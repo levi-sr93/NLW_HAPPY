@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
+
+import orphanageView from '../views/orphanagesView';
 import Orphanage from '../models/Orphanage';
 
 //Model - Representação de uma entidade na aplicação ( dado, usuário, usuário)
@@ -16,7 +18,7 @@ export default {
       relations: ['images']
     });
 
-    return response.json(orphanages);
+    return response.json(orphanageView.renderMany(orphanages));
   },
 
   async show(request: Request, response: Response) {
@@ -28,7 +30,7 @@ export default {
       relations: ['images']
     });
 
-    return response.json(orphanage);
+    return response.json(orphanageView.render(orphanage));
   },
 
   async create(request: Request, response: Response) {
